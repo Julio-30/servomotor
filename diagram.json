@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 16.05,
+      "left": -92.4,
+      "attrs": { "env": "arduino-community" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 36.4, "left": 86.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 44.4,
+      "left": -159.4,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 139.2,
+      "left": -173.35,
+      "rotate": 90,
+      "attrs": { "value": "100" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:RX", "pico:GP0", "", [] ],
+    [ "pico:GND.8", "servo1:GND", "black", [ "h68.4", "v38.4" ] ],
+    [ "pico:3V3", "servo1:V+", "red", [ "h58.8", "v19.2" ] ],
+    [ "pico:GP22", "servo1:PWM", "white", [ "h49.2", "v-28.8", "h67.2" ] ],
+    [ "led1:C", "r1:1", "black", [ "v0" ] ],
+    [ "r1:2", "pico:GND.4", "black", [ "h0", "v37.2" ] ],
+    [ "led1:A", "pico:GP12", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
